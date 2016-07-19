@@ -12,7 +12,15 @@ public class Person {
 
 	private String personName;
 
-	private String personAddress;
+	private Address address;
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public ObjectId getObjectId() {
 		return objectId;
@@ -30,24 +38,17 @@ public class Person {
 		this.personName = personName;
 	}
 
-	public String getPersonAddress() {
-		return personAddress;
-	}
-
-	public void setPersonAddress(String personAddress) {
-		this.personAddress = personAddress;
-	}
-
 	public Person() {
 	}
 
-	public Person(String personName, String personAddress) {
+	public Person(String personName, Address address) {
 		this.personName = personName;
-		this.personAddress = personAddress;
+		this.address = address;
 	}
 
 	@Override
 	public String toString() {
-		return "{ _id: " + objectId + ", personName: " + personName + ", personAddress: " + personAddress + "}";
+		return "{ _id: " + objectId + ", personName: " + personName + ", address: { city: " + address.getCity() + ", state: " + address.getState()
+				+ ", pincode: " + address.getPincode() + "}}";
 	}
 }
